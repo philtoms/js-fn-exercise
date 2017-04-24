@@ -1,0 +1,31 @@
+[
+  {
+    "id": "question1",
+    "type": "text",
+    "text": "Please answer this question"
+  }, {
+    "id": "question2",
+    "type": "dropdown",
+    "text": "Please answer this other question"
+  }, {
+    "id": "question3",
+    "type": "yesno",
+    "text": "Let us know about this"
+  }, {
+    "id": "question3-YES-question1",
+    "type": "text",
+    "text": "Do you like nested questions?"
+  }, {
+    "id": "question3-YES-question1-NO-said-no",
+    "type": "dropdown",
+    "text": "why?"
+  }, {
+    "id": "question4",
+    "type": "yesno",
+    "text": "Let us know about something else"
+  }, {
+    "id": "question4-YES-question1",
+    "type": "text",
+    "text": "So how come?"
+  }
+]

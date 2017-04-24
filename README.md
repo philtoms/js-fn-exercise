@@ -51,4 +51,4 @@ A ``flattenTree`` implementation following the description above. Fork this repo
    Don't be ashamed of committing broken code, just commit every significant step in getting to your solution.
 1. Write node6 compatible code, but please use ES6. For the sake of simplicity, don't use any transpiler.
 1. Use ``lodash-fp`` or ``ramda`` (we use the former, but choice is yours): we want to see a functional style solution.
-1. Your solution *must include* at least, one test (use ``ava`` as specified on ``package.json``) that validates the provided examples. If there is any inconsistency between the provided examples and any of the text above, *THE EXAMPLES ARE THE ULTIMATE SOURCE OF TRUTH*
+1. Your solution *must include* at least, one test (use ``ava`` as specified on ``package.json``) that validates the provided examples (available under the directory ``examples``). If there is any inconsistency between the provided examples and any of the text above, *THE EXAMPLES ARE THE ULTIMATE SOURCE OF TRUTH*

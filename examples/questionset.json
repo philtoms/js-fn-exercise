@@ -1,0 +1,92 @@
+[
+  {
+    "id": "question1",
+    "type": "text",
+    "question": "Please answer this question"
+  },
+  {
+    "id": "question2",
+    "type": "list",
+    "question": "Please answer this other question"
+  },
+  {
+    "id": "question3",
+    "type": "yesno",
+    "question": "Let us know about this",
+    "groups": [
+      {
+        "trigger": "YES",
+        "questions": [
+          {
+            "id": "question1",
+            "type": "text",
+            "question": "Do you like nested questions?",
+            "groups": [
+              {
+                "trigger": "NO",
+                "questions": [
+                  {
+                    "id": "said-no",
+                    "type": "list",
+                    "question": "why?"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "question4",
+    "type": "yesno",
+    "question": "Let us know about something else",
+    "groups": [
+      {
+        "trigger": "NO",
+        "questions": [
+          {
+            "id": "question1",
+            "type": "text",
+            "question": "Do you like nested questions?",
+            "groups": [
+              {
+                "trigger": "YES",
+                "questions": [
+                  {
+                    "id": "said-yes",
+                    "type": "list",
+                    "question": "why?"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "trigger": "YES",
+        "questions": [
+          {
+            "id": "question1",
+            "type": "text",
+            "question": "So how come?",
+            "groups": [
+              {
+                "trigger": "Other",
+                "questions": [
+                  {
+                    "id": "said-no",
+                    "type": "list",
+                    "question": "why?"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
