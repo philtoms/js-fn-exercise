@@ -40,6 +40,11 @@ The output list should not contain any question that is not triggered, and its o
 ## What you need to submit
 
 A ``flattenTree`` implementation following the description above. Fork this repo, write code until happy, send us a link with your repo. Ideally, you should be following the rules below.
+The directory examples contains three files:
+
+* ``questionset.json``: is an example of a questionset definition
+* ``answers.json``: the user answers as they will be passed onto ``flattenTree``
+* ``expectedOutput.json``: the expected result of running ``flattenTree(q, a)`` where ``q`` is the contents of questionset.json above and ``a`` is the contents of ``answers.json`` above
 
 ## The rules (it was not going to be _that_ easy)
 
