@@ -32,7 +32,7 @@ The answers for a given questionset are a hash where the keys correspond to ques
 ``flattenTree(questionset, answers)`` is a function that, given a questionset as described above and some answers returns a flattened version of the questionset as an array of objects with the following fields;
 
 > * text: the value of the corresponding ``question`` field of the input question
-> * type: the value of the corresponding ``type`` field of the input question, but  *replacing "list" with "dropdown"*
+> * type: the value of the corresponding ``type`` field of the input question, but  *replacing "integer" with "number"*
 > * id: a *unique* string identifying a question. These ids should follow the rules described for answer keys
 
 The output list should not contain any question that is not triggered, and its order should correspond to a pre-order traversal of the input questionset.

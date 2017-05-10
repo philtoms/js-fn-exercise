@@ -5,7 +5,7 @@
     "text": "Please answer this question"
   }, {
     "id": "question2",
-    "type": "dropdown",
+    "type": "number",
     "text": "Please answer this other question"
   }, {
     "id": "question3",
@@ -17,7 +17,7 @@
     "text": "Do you like nested questions?"
   }, {
     "id": "question3-YES-question1-NO-said-no",
-    "type": "dropdown",
+    "type": "number",
     "text": "why?"
   }, {
     "id": "question4",
