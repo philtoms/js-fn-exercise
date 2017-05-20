@@ -7,6 +7,8 @@ const expectedOutput = require('../examples/expectedOutput.json');
 const mapOutputId = require('../src/mapOutputId');
 const mapGroups = require('../src/mapGroups')('groups');
 const mapQuestions = require('../src/mapGroups')('questions');
+const mapAnswers = require('../src/mapAnswers');
+const matchAnswers = require('../src/matchAnswers');
 const flatmap = require('../src/flatmap');
 const flattenTree = require('../lib/flattenTree');
 
@@ -48,6 +50,7 @@ test('flatmap the tree and preserve order', t => {
 });
 
 test('flatmap the tree and generate output id paths', t => {
+
   t.deepEqual(flatmap(tree).map(({outputId}) => outputId), [
     [1],
     [1, 2],
@@ -56,6 +59,14 @@ test('flatmap the tree and generate output id paths', t => {
     [1, 2, 3, 4, 5],
     [1, 2, 3, 4, 6]
   ]);
+});
+
+test('generate answerIds', t => {
+  t.deepEqual(mapAnswers({a: 1, b: 2}), {'a-1': true, 'b-2': true});
+});
+
+test('filter the answerd questions', t => {
+  t.deepEqual(flatmap(tree).filter(matchAnswers({'1-2': 3})).map(({id}) => id),[1, 3]);
 });
 
 test('flattens correctly the provided examples', t => {
