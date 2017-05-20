@@ -3,7 +3,30 @@ const fp = require('lodash/fp');
 const questionset = require('../examples/questionset.json');
 const answers = require('../examples/answers.json');
 const expectedOutput = require('../examples/expectedOutput.json');
-const flattenTree = require('../lib/flattenTree.js');
+
+const flatmap = require('../src/flatmap');
+const flattenTree = require('../lib/flattenTree');
+
+const tree = [{
+  id: 1,
+  groups: [{
+    trigger: 2,
+    questions: [{
+      id: 3,
+      groups: [{
+        trigger: 4,
+        questions: [
+          {id: 5},
+          {id: 6}
+        ]
+      }]
+    }]
+  }]
+}];
+
+test('flatmap the tree and preserve order', t => {
+  t.deepEqual(flatmap(tree).map(({id, trigger}) => id || trigger), [1, 2, 3, 4, 5, 6])
+})
 
 test('flattens correctly the provided examples', t => {
   const result = flattenTree(questionset, answers)
@@ -13,5 +36,5 @@ test('flattens correctly the provided examples', t => {
   //result[0] = Object.assign({}, result[0], {bust: true})
 
   // iterate the expectation to highlight specific fails..
-  fp.zipWith((r, e) => console.log(r, e) || t.deepEqual(r, e), result, expectedOutput)
+  fp.zipWith((r, e) => t.deepEqual(r, e), result, expectedOutput)
 });
