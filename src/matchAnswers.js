@@ -2,12 +2,9 @@ const fp = require('lodash/fp');
 const mapAnswers = require('./mapAnswers');
 
 // an answer matches either a top level question or an output id
-const matchAnswers = answers => {
-  const match = mapAnswers(answers);
-  return question => {
-    return question.outputId.length === 1 ||
-            match[question.outputId.join('-')];
-  }
+const matchAnswers = (questions, answers) => {
+  const match = mapAnswers(questions, answers)
+  return question => question.outputId === question.id || match[question.outputId]
 };
 
 module.exports = matchAnswers;
