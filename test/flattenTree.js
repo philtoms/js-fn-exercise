@@ -5,6 +5,8 @@ const answers = require('../examples/answers.json');
 const expectedOutput = require('../examples/expectedOutput.json');
 
 const mapOutputId = require('../src/mapOutputId');
+const mapGroups = require('../src/mapGroups')('groups');
+const mapQuestions = require('../src/mapGroups')('questions');
 const flatmap = require('../src/flatmap');
 const flattenTree = require('../lib/flattenTree');
 
@@ -31,6 +33,14 @@ test('map a new output id accumulator onto the object', t => {
 
 test('ensure normalised output ids', t => {
   t.deepEqual(mapOutputId([1], undefined)({}).outputId, [1])
+});
+
+test('add output ids to each nested question', t => {
+  t.deepEqual(mapQuestions({outputId: 1, questions: [{}, {}]}), [{outputId: [1]}, {outputId: [1]}]);
+});
+
+test('add output ids to each nested group', t => {
+  t.deepEqual(mapGroups({outputId: 1, groups: [{}, {}]}), [{outputId: [1]}, {outputId: [1]}]);
 });
 
 test('flatmap the tree and preserve order', t => {
