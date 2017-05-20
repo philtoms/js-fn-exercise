@@ -1,10 +1,14 @@
 const fp = require('lodash/fp');
+const mapOutputId = require('./mapOutputId');
+const mapGroups = require('./mapGroups')('groups');
+const mapQuestions = require('./mapGroups')('questions');
 
 const flatmap = fp.flatMapDeep(obj => {
+  obj = mapOutputId(obj.outputId, obj.id || obj.trigger)(obj)
   return [
     obj,
-    flatmap(obj.groups),
-    flatmap(obj.questions)
+    flatmap(mapGroups(obj)),
+    flatmap(mapQuestions(obj))
   ]
 });
 

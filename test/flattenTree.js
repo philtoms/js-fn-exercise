@@ -47,6 +47,17 @@ test('flatmap the tree and preserve order', t => {
   t.deepEqual(flatmap(tree).map(({id, trigger}) => id || trigger), [1, 2, 3, 4, 5, 6]);
 });
 
+test('flatmap the tree and generate output id paths', t => {
+  t.deepEqual(flatmap(tree).map(({outputId}) => outputId), [
+    [1],
+    [1, 2],
+    [1, 2, 3],
+    [1, 2, 3, 4],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 6]
+  ]);
+});
+
 test('flattens correctly the provided examples', t => {
   const result = flattenTree(questionset, answers);
 
