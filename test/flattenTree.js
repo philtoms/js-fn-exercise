@@ -65,15 +65,16 @@ test('flatmap the tree and generate output id paths', t => {
 });
 
 test('generate answerIds', t => {
-  t.deepEqual(mapAnswers([], {1: 2, 3: 4}), {'1-2': true, '3-4': true});
-});
-
-test('generate answerIds for triggers', t => {
-  t.deepEqual(mapAnswers(flatmap(tree), {1: 2}), {'1-2-3': true});
+  t.deepEqual(mapAnswers({1: 2, 3: 4}), [
+    '1',
+    '1-2',
+    '3',
+    '3-4'
+  ]);
 });
 
 test('filter the answered questions', t => {
-  t.deepEqual(flatmap(tree).filter(matchAnswers(flatmap(tree),{'1-2': 3})).map(({id}) => id),[3]);
+  t.deepEqual(flatmap(tree).filter(matchAnswers({'1-2': 3})).map(q => q.id), [3]);
 });
 
 test('map matched Questions onto output', t => {
